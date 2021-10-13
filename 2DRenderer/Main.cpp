@@ -35,6 +35,7 @@ int main(int, char**)
         {
             framebuffer->DrawRect(rand() % framebuffer->width, rand() % framebuffer->height, 20, 20, { 0, 0, 255, 0 });
         }
+
         for (int i = 0; i < 20; i++)
         {
             framebuffer->DrawLine(framebuffer->width >> 1, framebuffer->height >> 1, rand() % framebuffer->width, rand() % framebuffer->height, { 255, 255, 255, 0 });
@@ -56,6 +57,9 @@ int main(int, char**)
                 rand() % framebuffer->width, rand() % framebuffer->height,
                 30, { 0, 255, 255, 255 });
         }
+
+        framebuffer->DrawCircle(400, 300, 50, {255, 0, 0, 255});
+        framebuffer->DrawTriangle(200, 400, 600, 400, 400, 200, {255, 0, 0, 255});
 
 		framebuffer->Update();
 
