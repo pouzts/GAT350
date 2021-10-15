@@ -244,6 +244,22 @@ void Framebuffer::DrawCubicCurve(int x1, int y1, int x2, int y2, int x3, int y3,
     }
 }
 
+void Framebuffer::DrawImage(int x1, int y1, Image* image)
+{
+
+        for (int y = 0; y < image->height; y++)
+        {
+            int sy = y1 + y;
+            for (int x = 0; x < image->width; x++)
+            {
+                int sx = x1 + x;
+                if (sx > width || sy > height) continue;
+
+                ((color_t*)buffer)[sx + (sy * width)] = ((color_t*)image->buffer)[x + (y * image->width)];
+            }
+        }
+}
+
 void Framebuffer::DrawCircleOctants(int cx, int cy, int x, int y, const color_t& color)
 {
     DrawPoint(cx + x, cy + y, color);

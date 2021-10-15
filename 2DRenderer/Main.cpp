@@ -1,5 +1,6 @@
 #include "Renderer.h"
 #include "Framebuffer.h"
+#include "Image.h"
 #include <iostream>
 #include <SDL.h>
 
@@ -13,6 +14,10 @@ int main(int, char**)
 
 	std::unique_ptr<Framebuffer> framebuffer = std::make_unique<Framebuffer>(renderer.get(), renderer->width, renderer->height);
 	
+    std::unique_ptr<Image> image = std::make_unique<Image>();
+    image->Load("../resources/color.bmp");
+    image->Flip();
+
 	bool quit = false;
 	SDL_Event event;
 	while (!quit)
@@ -60,6 +65,8 @@ int main(int, char**)
 
         framebuffer->DrawCircle(400, 300, 50, {255, 0, 0, 255});
         framebuffer->DrawTriangle(200, 400, 600, 400, 400, 200, {255, 0, 0, 255});
+
+        framebuffer->DrawImage(30, 30, image.get());
 
 		framebuffer->Update();
 
