@@ -1,6 +1,5 @@
 #pragma once
 #include "Renderer.h"
-#include "Image.h"
 #include <vector>
 
 class Framebuffer

@@ -1,4 +1,5 @@
 #include "Framebuffer.h"
+#include "Image.h"
 
 //#define SLOPE
 //#define DDA
