@@ -75,7 +75,7 @@ int main(int, char**)
         //PostProcess::Brightness(framebuffer->colorBuffer, 100); 
         //PostProcess::Brightness(framebuffer->colorBuffer, -100);
         //PostProcess::ColorBalance(framebuffer->colorBuffer, 0, 0, 100);
-        PostProcess::Threshold(framebuffer->colorBuffer, 200);
+        //PostProcess::Threshold(framebuffer->colorBuffer, 200);
 
 		framebuffer->Update();
 
