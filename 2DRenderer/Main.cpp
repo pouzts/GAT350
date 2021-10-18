@@ -1,6 +1,7 @@
 #include "Renderer.h"
 #include "Framebuffer.h"
 #include "Image.h"
+#include "PostProcess.h"
 #include <iostream>
 #include <SDL.h>
 
@@ -34,32 +35,32 @@ int main(int, char**)
 		
         for (int i = 0; i < 100; i++)
         {
-            framebuffer->DrawPoint(rand() % framebuffer->width, rand() % framebuffer->height, { 0, 255, 0, 0 });
+            framebuffer->DrawPoint(rand() % renderer->width, rand() % renderer->height, { 0, 255, 0, 0 });
         }
         for (int i = 0; i < 20; i++)
         {
-            framebuffer->DrawRect(rand() % framebuffer->width, rand() % framebuffer->height, 20, 20, { 0, 0, 255, 0 });
+            framebuffer->DrawRect(rand() % renderer->width, rand() % renderer->height, 20, 20, { 0, 0, 255, 0 });
         }
 
         for (int i = 0; i < 20; i++)
         {
-            framebuffer->DrawLine(framebuffer->width >> 1, framebuffer->height >> 1, rand() % framebuffer->width, rand() % framebuffer->height, { 255, 255, 255, 0 });
+            framebuffer->DrawLine(renderer->width >> 1, renderer->height >> 1, rand() % renderer->width, rand() % renderer->height, { 255, 255, 255, 0 });
         }
 
         for (int i = 0; i < 10; i++)
         {
             framebuffer->DrawQuadraticCurve(
-                rand() % framebuffer->width, rand() % framebuffer->height,
-                rand() % framebuffer->width, rand() % framebuffer->height,
-                rand() % framebuffer->width, rand() % framebuffer->height, 30, { 255, 255, 0, 255 });
+                rand() % renderer->width, rand() % renderer->height,
+                rand() % renderer->width, rand() % renderer->height,
+                rand() % renderer->width, rand() % renderer->height, 30, { 255, 255, 0, 255 });
         }
         for (int i = 0; i < 10; i++)
         {
             framebuffer->DrawCubicCurve(
-                rand() % framebuffer->width, rand() % framebuffer->height,
-                rand() % framebuffer->width, rand() % framebuffer->height,
-                rand() % framebuffer->width, rand() % framebuffer->height,
-                rand() % framebuffer->width, rand() % framebuffer->height,
+                rand() % renderer->width, rand() % renderer->height,
+                rand() % renderer->width, rand() % renderer->height,
+                rand() % renderer->width, rand() % renderer->height,
+                rand() % renderer->width, rand() % renderer->height,
                 30, { 0, 255, 255, 255 });
         }
 
@@ -67,6 +68,14 @@ int main(int, char**)
         framebuffer->DrawTriangle(200, 400, 600, 400, 400, 200, {255, 0, 0, 255});
 
         framebuffer->DrawImage(30, 30, image.get());
+
+        //PostProcess::Invert(framebuffer->colorBuffer);
+        //PostProcess::Monochrome(framebuffer->colorBuffer);
+        //PostProcess::Noise(framebuffer->colorBuffer, 100);
+        //PostProcess::Brightness(framebuffer->colorBuffer, 100); 
+        //PostProcess::Brightness(framebuffer->colorBuffer, -100);
+        //PostProcess::ColorBalance(framebuffer->colorBuffer, 0, 0, 100);
+        PostProcess::Threshold(framebuffer->colorBuffer, 200);
 
 		framebuffer->Update();
 

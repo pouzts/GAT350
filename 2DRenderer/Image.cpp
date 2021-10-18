@@ -1,10 +1,7 @@
 #include "Image.h"
+#include <iostream>
 #include <fstream>
 
-Image::~Image()
-{
-	delete[] buffer;
-}
 
 bool Image::Load(const std::string& filename, uint8_t alpha)
 {
@@ -25,38 +22,38 @@ bool Image::Load(const std::string& filename, uint8_t alpha)
 		return false;
 	}
 	
-	width = *((int*)(&header[18]));
-	height = *((int*)(&header[22]));
-	
-	int pitch = width * sizeof(color_t);
+	// get the image width and height
+	colorBuffer.width = *((int*)(&header[18]));
+	colorBuffer.height = *((int*)(&header[22]));
 
-	buffer = new uint8_t[width * pitch];
+	// set the image pitch (uses color_t (RGBA) for pixel)
+	colorBuffer.pitch = colorBuffer.width * sizeof(color_t);
+
+	// create the image color buffer 
+	colorBuffer.data = new uint8_t[colorBuffer.width * colorBuffer.pitch];
+
 
 	uint16_t bitsPerPixel = *((uint16_t*)(&header[28]));
 
 	uint16_t bytesPerPixel = bitsPerPixel / 8;
 
-	size_t size = width * height * bytesPerPixel;
+	size_t size = colorBuffer.width * colorBuffer.height * bytesPerPixel;
 
-	uint8_t* data = new uint8_t[size];
+	stream.read((char*)colorBuffer.data, size);
 
-	stream.read((char*)data, size);
+	//for (int i = 0; i < colorBuffer.width * colorBuffer.height; i++)
+	//{
+	//	color_t color;
 
-	for (int i = 0; i < width * height; i++)
-	{
-		color_t color;
+	//	// colors in bmp data are stored (BGR)
+	//	int index = i * bytesPerPixel;
+	//	color.b = colorBuffer.data[index];
+	//	color.g = colorBuffer.data[index + 1];
+	//	color.r = colorBuffer.data[index + 2];
+	//	color.a = alpha;
 
-		// colors in bmp data are stored (BGR)
-		int index = i * bytesPerPixel;
-		color.b = data[index];
-		color.g = data[index + 1];
-		color.r = data[index + 2];
-		color.a = alpha;
-
-		((color_t*)(buffer))[i] = color;
-	}
-
-	delete[] data;
+	//	((color_t*)colorBuffer.data)[i] = color;
+	//}
 
 	stream.close();
 
@@ -66,15 +63,15 @@ bool Image::Load(const std::string& filename, uint8_t alpha)
 void Image::Flip()
 {
 	// set the pitch (width * number of bytes per pixel)
-	int pitch = width * sizeof(color_t);
+	int pitch = colorBuffer.width * sizeof(color_t);
 
 	// create temporary line to store data
 	uint8_t* temp = new uint8_t[pitch];
 
-	for (int i = 0; i < height / 2; i++)
+	for (int i = 0; i < colorBuffer.height / 2; i++)
 	{
-		uint8_t* line1 = &((buffer)[i * pitch]);
-		uint8_t* line2 = &((buffer)[((height - 1) - i) * pitch]);
+		uint8_t* line1 = &((colorBuffer.data)[i * pitch]);
+		uint8_t* line2 = &((colorBuffer.data)[((colorBuffer.height - 1) - i) * pitch]);
 		memcpy(temp, line1, pitch);
 		memcpy(line1, line2, pitch);
 		memcpy(line2, temp, pitch);

@@ -23,6 +23,9 @@
     <ClCompile Include="Image.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="PostProcess.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framebuffer.h">
@@ -32,6 +35,12 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="Image.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorBuffer.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="PostProcess.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>

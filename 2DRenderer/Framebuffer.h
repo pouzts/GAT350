@@ -1,4 +1,5 @@
 #pragma once
+#include "ColorBuffer.h"
 #include "Renderer.h"
 #include <vector>
 
@@ -29,9 +30,5 @@ private:
 
 public:
 	SDL_Texture* texture{ nullptr };
-	uint8_t* buffer{ nullptr };
-
-	int width = 0;
-	int height = 0;
-	int pitch = 0;
+	ColorBuffer colorBuffer;
 };
