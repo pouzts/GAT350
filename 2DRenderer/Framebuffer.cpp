@@ -263,7 +263,13 @@ void Framebuffer::DrawImage(int x1, int y1, Image* image)
 
 void Framebuffer::DrawCircleOctants(int cx, int cy, int x, int y, const color_t& color)
 {
-    DrawPoint(cx + x, cy + y, color);
+    DrawLine(cx - x, cy + y, cx + x, cy + y, color);
+    DrawLine(cx - x, cy - y, cx + x, cy - y, color);
+    
+    DrawLine(cx - y, cy + x, cx + y, cy + x, color);
+    DrawLine(cx - y, cy - x, cx + y, cy - x, color);
+    
+    /*DrawPoint(cx + x, cy + y, color);
     DrawPoint(cx + x, cy - y, color);
     DrawPoint(cx - x, cy + y, color);
     DrawPoint(cx - x, cy - y, color);
@@ -271,7 +277,7 @@ void Framebuffer::DrawCircleOctants(int cx, int cy, int x, int y, const color_t&
     DrawPoint(cx + y, cy + x, color);
     DrawPoint(cx + y, cy - x, color);
     DrawPoint(cx - y, cy + x, color);
-    DrawPoint(cx - y, cy - x, color);
+    DrawPoint(cx - y, cy - x, color);*/
 
 }
 

@@ -22,14 +22,14 @@
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="PostProcess.cpp" />
+    <ClCompile Include="ImageProcess.cpp" />
     <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorBuffer.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="Image.h" />
-    <ClInclude Include="PostProcess.h" />
+    <ClInclude Include="ImageProcess.h" />
     <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

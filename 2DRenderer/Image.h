@@ -12,6 +12,6 @@ public:
 	bool Load(const std::string& filename, uint8_t alpha = 255);
 	void Flip();
 
-private:
+public:
 	ColorBuffer colorBuffer;
 };

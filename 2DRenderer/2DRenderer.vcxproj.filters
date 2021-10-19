@@ -23,7 +23,7 @@
     <ClCompile Include="Image.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="PostProcess.cpp">
+    <ClCompile Include="ImageProcess.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,7 +40,7 @@
     <ClInclude Include="ColorBuffer.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="PostProcess.h">
+    <ClInclude Include="ImageProcess.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>
