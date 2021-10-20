@@ -16,7 +16,7 @@ int main(int, char**)
 	std::unique_ptr<Framebuffer> framebuffer = std::make_unique<Framebuffer>(renderer.get(), renderer->width, renderer->height);
 	
     std::unique_ptr<Image> image = std::make_unique<Image>();
-    image->Load("../resources/flower.bmp");
+    image->Load("../resources/flower.bmp", 210);
     image->Flip();
 
 	bool quit = false;
@@ -37,11 +37,12 @@ int main(int, char**)
         {
             framebuffer->DrawPoint(rand() % renderer->width, rand() % renderer->height, { 0, 255, 0, 0 });
         }
+        */
         for (int i = 0; i < 20; i++)
         {
-            framebuffer->DrawRect(rand() % renderer->width, rand() % renderer->height, 20, 20, { 0, 0, 255, 0 });
+            framebuffer->DrawRect(rand() % renderer->width, rand() % renderer->height, 100, 100, { (uint8_t)((rand() % 2) * 255), (uint8_t)((rand() % 2) * 255), (uint8_t)((rand() % 2) * 255), (uint8_t)(rand() % 256) });
         }
-
+        /*
         for (int i = 0; i < 20; i++)
         {
             framebuffer->DrawLine(renderer->width >> 1, renderer->height >> 1, rand() % renderer->width, rand() % renderer->height, { 255, 255, 255, 0 });
@@ -83,7 +84,7 @@ int main(int, char**)
 
         std::unique_ptr<Image> image4 = std::make_unique<Image>(*image.get());
         ImageProcess::Monochrome(image4->colorBuffer);
-        ImageProcess::Edge(image4->colorBuffer, 150);
+        ImageProcess::Edge(image4->colorBuffer, 50);
         framebuffer->DrawImage(600, 300, image4.get());
 
         //ImageProcess::Invert(framebuffer->colorBuffer);

@@ -228,6 +228,8 @@ namespace ImageProcess
 			int x = i % source.width;
 			int y = i / source.width;
 
+			if (x < 1 || x + 1 >= source.width || y < 1 || y + 1 >= source.height) continue;
+
 			int16_t h = 0;
 			int16_t v = 0;
 			for (int iy = -1; iy <= 1; iy++)
@@ -240,8 +242,8 @@ namespace ImageProcess
 			}
 
 			uint16_t result = (uint16_t)sqrt((h * h) + (v * v));
-
 			result = (result > threshold) ? result : 0;
+			
 			uint8_t c = (result < 0) ? 0 : ((result > 255) ? 255 : result);
 
 			color_t& color = ((color_t*)colorBuffer.data)[i];
