@@ -24,13 +24,17 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ImageProcess.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Tracer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorBuffer.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageProcess.h" />
+    <ClInclude Include="Ray.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Tracer.h" />
+    <ClInclude Include="Types.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
