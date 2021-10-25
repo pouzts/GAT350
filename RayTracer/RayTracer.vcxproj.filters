@@ -19,6 +19,12 @@
     <ClCompile Include="Tracer.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorBuffer.h">
@@ -43,6 +49,15 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="Tracer.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>

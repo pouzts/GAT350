@@ -6,7 +6,6 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 #include <glm/gtx/color_space.hpp>
-
 #include <sdl.h>
 
 using color_t = SDL_Color;
@@ -21,4 +20,14 @@ inline color_t Vec3ToColor(const glm::vec3& vec3)
     color.a = 0;
 
     return color;
+}
+
+inline float dot(const glm::vec3& v1, const glm::vec3& v2)
+{
+    return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+}
+
+inline float angle(const glm::vec3& v1, const glm::vec3& v2)
+{
+    return glm::acos(dot(v1, v2));
 }
