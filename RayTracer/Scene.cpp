@@ -13,12 +13,12 @@ glm::vec3 Scene::Trace(const ray_t& r, float tMin, float tMax, raycastHit_t& hit
         }
     }
 
-    if (rayHit) 
+    if (rayHit)
     {
-        return glm::vec3({1, 0, 0});
+        return glm::vec3({ 0, 1, 0 });
     }
 
-    return glm::vec3({0, 0, 0});
+    return glm::vec3({ 0, 0, 0 });
 }
 
 void Scene::Add(std::unique_ptr<Geometry> geometry)

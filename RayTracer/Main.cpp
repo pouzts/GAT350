@@ -25,6 +25,7 @@ int main(int, char**)
 	std::unique_ptr<Scene> scene = std::make_unique<Scene>();
 	std::unique_ptr<Sphere> sphere = std::make_unique<Sphere>(glm::vec3{ 0, 0, -10 }, 3.0f);
 	scene->Add(std::move(sphere));
+	scene->Add(std::move(std::make_unique<Plane>(glm::vec3{ 0, -5, 0 }, glm::vec3{ 0, 1, 0 })));
 
 	bool quit = false;
 	SDL_Event event;
