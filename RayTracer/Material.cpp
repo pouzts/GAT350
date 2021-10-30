@@ -1,8 +1,10 @@
-#include "Material.h"
+#include "Lambertian.h"
+#include "Metal.h"
 
 bool Lambertian::Scatter(const ray_t& ray, const raycastHit_t& hit, glm::vec3& attenuation, ray_t& scattered) const
 {
-    glm::vec3 direction = glm::normalize(hit.normal + randomInUnitSphere());
+    glm::vec3 target = hit.point + hit.normal + randomInUnitSphere();
+    glm::vec3 direction = glm::normalize(target - hit.point);
 
     scattered = { hit.point, direction };
     attenuation = albedo;

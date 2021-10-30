@@ -72,6 +72,12 @@
     <ClInclude Include="Material.h">
       <Filter>Sources</Filter>
     </ClInclude>
+    <ClInclude Include="Lambertian.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Metal.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Sources">
