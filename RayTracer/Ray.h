@@ -1,7 +1,6 @@
 #pragma once
 #include "Types.h"
-
-class Material;
+#include "Material.h"
 
 struct raycastHit_t
 {
