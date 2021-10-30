@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "Material.h"
 
 glm::vec3 Scene::Trace(const ray_t& r, float tMin, float tMax, raycastHit_t& hit)
 {
@@ -36,5 +35,5 @@ glm::vec3 Scene::Trace(const ray_t& r, float tMin, float tMax, raycastHit_t& hit
 
 void Scene::Add(std::unique_ptr<Geometry> geometry)
 {
-	objects.push_back(std::move(geometry));
+    objects.push_back(std::move(geometry));
 }
