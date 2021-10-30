@@ -1,7 +1,9 @@
 #pragma once
 #include "Ray.h"
 #include "Sphere.h"
-#include "Plane.h"
+//#include "Plane.h"
+
+#include <memory>
 #include <vector>
 
 class Scene
