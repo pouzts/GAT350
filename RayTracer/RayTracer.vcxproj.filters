@@ -25,10 +25,10 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Material.cpp">
+    <ClCompile Include="Plane.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Plane.cpp">
+    <ClCompile Include="Material.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -70,12 +70,6 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Lambertian.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Metal.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>

@@ -23,6 +23,8 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ImageProcess.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
@@ -34,9 +36,7 @@
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageProcess.h" />
-    <ClInclude Include="Lambertian.h" />
     <ClInclude Include="Material.h" />
-    <ClInclude Include="Metal.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Renderer.h" />
