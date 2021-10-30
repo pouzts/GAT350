@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "Material.h"
 
 glm::vec3 Scene::Trace(const ray_t& r, float tMin, float tMax, raycastHit_t& hit)
 {
@@ -14,10 +13,21 @@ glm::vec3 Scene::Trace(const ray_t& r, float tMin, float tMax, raycastHit_t& hit
         }
     }
 
-    if (rayHit) 
-    {
-        return glm::vec3({ 0, 1, 0 });
-    }
+	if (rayHit)
+	{
+		ray_t scattered;
+		glm::vec3 attenuation;
+
+		if (hit.material->Scatter(r, hit, attenuation, scattered))
+		{
+			return attenuation * Trace(scattered, tMin, tMax, hit);
+		}
+		else
+		{
+			return { 0, 0, 0 };
+		}
+	}
+
 
     return glm::vec3({0, 0, 0});
 }
