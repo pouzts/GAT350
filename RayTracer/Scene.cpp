@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "Material.h"
 
 glm::vec3 Scene::Trace(const ray_t& r, float tMin, float tMax, raycastHit_t& hit)
 {

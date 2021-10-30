@@ -4,8 +4,7 @@
 #include "ImageProcess.h"
 #include "Tracer.h"
 #include "Scene.h"
-#include "Metal.h"
-#include "Lambertian.h"
+#include "Material.h"
 
 #include <SDL.h>
 #include <iostream>

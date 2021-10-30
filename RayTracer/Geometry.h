@@ -1,13 +1,13 @@
 #pragma once
-#include "Types.h"
+//#include "Types.h"
 #include "Ray.h"
 #include "Material.h"
 
 class Geometry
 {
 public:
-    Geometry() = default;
     Geometry(std::shared_ptr<Material> material) : material{ material } {}
+    Geometry() = default;
 
     virtual ~Geometry() = default;
 
