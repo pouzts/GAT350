@@ -19,6 +19,10 @@ int main(int, char**)
 
 	std::unique_ptr<Framebuffer> framebuffer = std::make_unique<Framebuffer>(renderer.get(), renderer->width, renderer->height);
 
+	// camera
+	float focalLength = glm::length(glm::vec3{ 5, 5, 5 } - glm::vec3{ 0, 0, -10 });
+	std::unique_ptr<Camera> camera = std::make_unique<Camera>(glm::vec3{ 5, 5, 5 }, glm::vec3{ 0, 0, -10 }, glm::vec3{ 0, 1, 0 }, 90.0f, glm::ivec2{ framebuffer->colorBuffer.width, framebuffer->colorBuffer.height }, 1.0f, focalLength);
+
 	// ray tracer
 	std::unique_ptr<Tracer> tracer = std::make_unique<Tracer>();
 
@@ -30,7 +34,7 @@ int main(int, char**)
 
 
 	framebuffer->Clear({ 0,0,0,0 });
-	tracer->Trace(framebuffer->colorBuffer, scene.get());
+	tracer->Trace(framebuffer->colorBuffer, scene.get(), camera.get());
 	framebuffer->Update();
 
 	bool quit = false;
