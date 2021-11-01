@@ -42,7 +42,7 @@ inline float random01()
 
 inline float random(float min, float max)
 {
-    return min + (max + min) * random01();
+    return min + (max - min) * random01();
 }
 
 inline glm::vec3 randomInUnitSphere()
@@ -60,4 +60,13 @@ inline glm::vec3 randomInUnitSphere()
 inline glm::vec3 reflect(const glm::vec3& v, const glm::vec3& n)
 {
     return v - (2 * dot(v, n) * n);
+}
+
+inline glm::vec3 cross(const glm::vec3& v1, const glm::vec3& v2)
+{
+    return glm::vec3{
+        v1.y * v2.z - v1.z * v2.y,
+        v1.z * v2.x - v1.x * v2.z,
+        v1.x * v2.y - v1.y * v2.x
+    };
 }
