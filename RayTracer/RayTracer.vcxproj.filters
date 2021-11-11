@@ -84,6 +84,9 @@
     <ClInclude Include="Sampler.h">
       <Filter>Sources</Filter>
     </ClInclude>
+    <ClInclude Include="Buffer.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Sources">
